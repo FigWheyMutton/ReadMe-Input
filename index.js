@@ -70,37 +70,37 @@ const questions = [
 function writeToFile(answers) {
     return `# ${answers.Title}
 
-    ## Description
-    ${answers.Desc}
+## Description
+${answers.Desc}
     
-    ## Table of Contents
-    [Description](#description)
-    [Installation](#installation)
-    [Usage](#usage)
-    [License](#license)
-    [Contributing](#contributing)
-    [Tests](#tests)
-    [Questions?](#questions?-feel-free-to-contact-me-below!)
+## Table of Contents
+* [Description](#description)
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions?](#questions?-feel-free-to-contact-me-below!)
 
-    ## Installation
-    ${answers.InstallInstructions}
+## Installation
+${answers.InstallInstructions}
         
-    ## Usage
-    ${answers.usage} 
+## Usage
+${answers.usage} 
         
-    ## License
-    ${answers.license}
+## License
+${answers.license}
     
         
       
-    ## Contributing
+## Contributing
         
-    ## Tests
-       
-    ## Questions? Feel free to contact me below! 
-    ${answers.Github}
-    ${answers.emailaddress}
-        `
+## Tests
+     
+## Questions? Feel free to contact me below! 
+${answers.Github}
+${answers.emailaddress}
+`
     
     
 }
