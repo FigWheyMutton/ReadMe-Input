@@ -27,12 +27,12 @@ const questions = [
     },
     {
         name: 'demo',
-        message:'What is your usage information?', 
+        message:'Give us an example of how to utilize your repository?', 
         type: 'input' 
     },
     {
         name: 'usability',
-        message: 'What are the usages of your repository?', 
+        message: 'When would your repository be usable?', 
         type: 'input' 
     },
     {   
@@ -70,8 +70,9 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(answers) {
+    let license;
     if (answers.license === 'Eclipse Public License 1.0') {
-        let license = '![Eclipse Public License](https://img.shields.io/badge/License-EPL_1.0-red.svg)'
+        license = '![Eclipse Public License](https://img.shields.io/badge/License-EPL_1.0-red.svg)'
         const AFL = `Eclipse Public License - v 1.0
         THE ACCOMPANYING PROGRAM IS PROVIDED UNDER THE TERMS OF THIS ECLIPSE PUBLIC LICENSE ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THE PROGRAM CONSTITUTES RECIPIENT'S ACCEPTANCE OF THIS AGREEMENT.
         
@@ -161,12 +162,9 @@ function writeToFile(answers) {
         fs.writeFile('license.txt', AFL, (err) => {
             err? console.log(err)
             : console.log('license created')
-            inner = JSON.stringify(license)
-            console.log(JSON.stringify(license))
-            // console.log(inner)
         })
     } if (answers.license === 'Apache license 2.0') {
-        let license = '![Apache 2.0 Badge](https://img.shields.io/badge/License-Apache_2.0-blue.svg)'
+        license = '![Apache 2.0 Badge](https://img.shields.io/badge/License-Apache_2.0-blue.svg)'
         const AL2 = `Copyright [yyyy] [name of copyright owner]
         
         Licensed under the Apache License, Version 2.0 (the "License");
@@ -183,10 +181,10 @@ function writeToFile(answers) {
         fs.writeFile('license.txt', AL2, (err) => {
             err? console.log(err)
             : console.log('license created')  
-            inner = JSON.stringify(license)
+       
         })
     } if (answers.license === 'MIT license') {
-        let license = '![MIT Badge](https://img.shields.io/badge/License-MIT-yellow.svg)'
+        license = '![MIT Badge](https://img.shields.io/badge/License-MIT-yellow.svg)'
         const MIT = `Copyright (c) 2012-2022 Scott Chacon and others
 
         Permission is hereby granted, free of charge, to any person obtaining
@@ -210,10 +208,10 @@ function writeToFile(answers) {
         fs.writeFile('license.txt', MIT, (err) => {
             err? console.log(err)
             : console.log('license created')
-            inner = JSON.stringify(license)
+       
         })
     } if (answers.license === 'Boost Software License 1.0') {
-        let license = '![Boost Software License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)'
+        license = '![Boost Software License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)'
         const BSL1 = `Boost Software License - Version 1.0 - August 17th, 2003
 
 Permission is hereby granted, free of charge, to any person or organization
@@ -240,49 +238,48 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
         fs.writeFile('license.txt', BSL1, (err) => {
             err? console.log(err)
             : console.log('license created')
-            inner = JSON.stringify(license)
+           
         })
     }
     return ` 
-    ## ${answers.Title} 
-    ${inner}
-    ## Description
-    ${answers.Desc}
+${license}
+## ${answers.Title} 
+    
+## Description
+${answers.Desc}
         
-    ## Table of Contents
-    * [Description](#description)
-    * [Installation](#installation)
-    * [Usage](#usage)
-    * [Credits](#credits)
-    * [License](#license)
-    * [Contributing](#how-to-contribute)
-    * [Tests](#tests)
-    * [Questions?](#questions?-feel-free-to-contact-me-below!)
+## Table of Contents
+* [Description](#description)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Credits](#credits)
+* [License](#license)
+* [Contributing](#how-to-contribute)
+* [Tests](#tests)
+* [Questions?](#questions?-feel-free-to-contact-me-below!)
     
-    ## Installation
-    ${answers.InstallInstructions}
+## Installation
+${answers.InstallInstructions}
             
-    ## Usage
-    ${answers.demo}
-    ${answers.usability} 
+## Usage
+${answers.demo}
+${answers.usability} 
     
-    ## Credits
-    ${answers.credits}
+## Credits
+${answers.credits}
     
-    ## License
-    ${answers.license}        
+## License
+The source code for this repository is licensed under the ${answers.license}, which can be found under the license.txt file.
     
-    ## How to Contribute
-    ${answers.addContribute}
+## How to Contribute
+${answers.addContribute}
     
-    ## Tests
-    ${answers.tests}
+## Tests
+${answers.tests}
     
-    ## Questions? Feel free to contact me below! 
+## Questions? Feel free to contact me below! 
     Github: https://github.com/${answers.Github}
-    
     Email: ${answers.emailaddress}
-
 `
     
     
