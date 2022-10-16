@@ -1,4 +1,4 @@
-# <Professional ReadMe Writer>
+# Professional ReadMe Writer
 
 ## Description
 My application utilizes Node and Inquirer npm in order to receive input data from a user and create a readme that follows their guidelines. My motivation to build this was to create a platform for users to quickly generate a readme file without having to go through the troubles of searching for the templates to create it. I was able to learn a lot about how to utilize functions to carry over information into other parts of code as well as using the `` to generate readMe file creations. I was also able to learn more about using the fs write file to create files for me as well. 
